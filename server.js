@@ -1,6 +1,6 @@
 const express = require("express");
 const app   = express()
-const port = 9000;
+
 
 // env vaveriables
 require("dotenv").config();
@@ -69,6 +69,6 @@ app.post("/sendmail",(req,res)=>{
 app.get("/",(req,res)=>{
  res.sendFile(path.join(__dirname, "./contact.html"))
 })
-app.listen(port,()=>{
-    console.log(`Server is running on port ${port}`)
-})
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`listening to port ${PORT}`));
